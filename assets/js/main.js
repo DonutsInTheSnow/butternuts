@@ -100,25 +100,20 @@
     return false;
   });
 
-  // Porfolio isotope and filter
-  $(window).on('load', function() {
-    // var galleryIsotope = $('.gallery-container').isotope({
-    //   itemSelector: '.gallery-item',
-    //   layoutMode: 'fitRows'
-    // });
-    // $('#gallery-filters li').on('click', function() {
-    //   $("#gallery-filters li").removeClass('filter-active');
-    //   $(this).addClass('filter-active');
-
-    //   $(".gallery-item").removeClass('initiallyHidden');
-      
-    //   galleryIsotope.isotope({
-    //     filter: $(this).data('filter')
-    //   });
-    // });
-    // Initiate venobox (lightbox feature used in portofilo)
-    $(document).ready(function() {
-      $('.venobox').venobox();
+  // Gallery isotope and filter
+  $(document).ready(function() {
+    function initVenobox() {
+      if ($(window).width() >= 500) {
+        $('.venobox').venobox();
+      } else {
+        $('.venobox').off('click'); // Remove Venobox behavior on smaller screens
+      }
+    }
+  
+    initVenobox(); // Run on page load
+  
+    $(window).resize(function() {
+      initVenobox(); // Re-run when window resizes
     });
   });
 
