@@ -890,3 +890,13 @@ display: none;
   opacity: 1;
   bottom: 0;
 }
+
+@media (max-width: 499px) {
+  .gallery .gallery-wrap .gallery-links {
+    display: none; /* Hides the hover effect and Venobox trigger */
+  }
+
+  .gallery .gallery-wrap:hover::before {
+    opacity: 0; /* Prevents the overlay effect */
+  }
+}
